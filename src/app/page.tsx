@@ -5,7 +5,7 @@ export default function Home() {
       <div>
         <ModeToggle />
       </div>
-      <div></div>
+      <div>Hello world</div>
     </main>
   );
 }
