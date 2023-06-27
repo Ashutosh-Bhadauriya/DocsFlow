@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { SiteHeader } from "@/components/layouts/site-header";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,7 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
+        <head />
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -26,6 +28,10 @@ export default function RootLayout({
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader />
+              <div className="flex-1">{children}</div>
+            </div>
             {children}
           </ThemeProvider>
         </body>
