@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import { SiteHeader } from "@/components/layouts/site-header";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
   title: "Create Next App",
@@ -29,11 +29,10 @@ export default function RootLayout({
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
               <div className="flex-1">{children}</div>
             </div>
-            {children}
           </ThemeProvider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
